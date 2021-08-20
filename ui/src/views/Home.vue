@@ -1,12 +1,8 @@
 <template>
   <div :id="id">
-    <v-row>
-      <v-col>
-        <v-container>
-          <h1>{{ appName }}</h1>
-        </v-container>
-      </v-col>
-    </v-row>
+    <v-container>
+      <h1 class="center">{{ appName }}</h1>
+    </v-container>
     <hello-world />
   </div>
 </template>
@@ -28,3 +24,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.center {
+  text-align: center;
+}
+</style>
