@@ -1,3 +1,6 @@
+const host = typeof process.env.HOST === 'string' ? process.env.HOST : 'localhost';
+const port = 3000
+
 module.exports = {
   transpileDependencies: ['vuetify'],
   pluginOptions: {
@@ -15,4 +18,12 @@ module.exports = {
       },
     },
   },
+  devServer: {
+    host: '0.0.0.0',
+    proxy: {
+      '/api': {
+        target: `http://${host}:${port}`
+      }
+    }
+  }
 };
