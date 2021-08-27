@@ -1,8 +1,11 @@
 # WingsLikeEagles
 
+## Submodules
+To pull all submodules: `git submodule update --init --recursive`
+
+# Running the Code
 There are 2 ways to run this: `standard` and `containered`
 Note: Both require docker for the database.
-
 ## Standard
 Only the database (postgres) is run in docker. Middleware and UI need to be run by you, the user.
 
