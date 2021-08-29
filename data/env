@@ -1,5 +1,5 @@
-export PG_USERNAME="wleadmin"
+export PG_USERNAME="wle_api"
 export PG_PASSWORD="tempdevpassword"
-export PG_DB="wle"
+export PG_DB="wle_api_production"
 
 # this is intentionally kept in git during early development

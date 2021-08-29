@@ -16,7 +16,8 @@ Only the database (postgres) is run in docker. Middleware and UI need to be run 
 ### Middleware
 1. Navigate to middleware/
 2. Run `bundle install` so all gems are installed
-3. Run `rails server -p 3000` 
+3. Copy `config/local_env.yml.template` to `config/local_env.yml` and fill in appropriate fields. Reference `env` file in `data/` for reference.
+4. Run `rails server -b 0.0.0.0`. 0.0.0.0 will save headaches for now when proxying requests from outside the middleware.
 
 ### UI
 1. Navigate to ui/
@@ -25,4 +26,11 @@ Only the database (postgres) is run in docker. Middleware and UI need to be run 
 4. Run `npm run lint` to run the linter.
 
 ## Containered
-`docker-compose up --build` ... so cory doesn't have to figure out why some gems don't install on arm
+### DB
+See above.
+
+### Middleware
+Build the dockerfile in middleware using: `docker build . -t wle-api`. Then run `docker run --name wle-api -p 3000:3000 wle-api`
+
+### UI
+Build the dockerfile in UI using: `docker build . -t wle-ui`. Then run `docker run --name wle-ui -p 8080:8080 wle-ui`
