@@ -9,12 +9,33 @@ Vue.use(Vuetify, {
 });
 
 export default new Vuetify({
+  breakpoint: {
+    mobileBreakpoint: 'sm', // This is equivalent to a value of 960
+  },
   theme: {
     dark: false, // can be changed in-app
     themes: {
       // color overrides
-      light: {},
-      dark: {},
+      light: {
+        primary: '#2196F3',
+        secondary: '#EEEEEE',
+        accent: '#965913',
+        error: '#FF5252',
+        info: '#A3A3A3',
+        success: '#4CAF50',
+        warning: '#FFC107',
+        headerContent: '#FFFFFF',
+      },
+      dark: {
+        // todo
+        primary: '#1976D2',
+        secondary: '#424242',
+        accent: '#82B1FF',
+        error: '#FF5252',
+        info: '#2196F3',
+        success: '#4CAF50',
+        warning: '#FFC107',
+      },
     },
   },
 });

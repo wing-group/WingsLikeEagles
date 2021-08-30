@@ -68,3 +68,5 @@ yarn-debug.log*
 
 # build files
 middleware/tmp/*
+
+.DS_Store

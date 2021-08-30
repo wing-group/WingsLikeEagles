@@ -1,10 +1,10 @@
 <template>
-  <v-container>
-    <v-row> &copy; {{ copyrightInfo }} </v-row>
-  </v-container>
+  <v-row dense>
+    <v-col class="text-right">&copy; {{ copyrightInfo }}</v-col>
+  </v-row>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 export default Vue.extend({
   name: 'WleFooter',

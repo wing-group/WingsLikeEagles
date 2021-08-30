@@ -25,12 +25,10 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "src/store/index.js",
-    "src/store/modules/auth.js",
-    "src/plugins/vuetify.js"
+    "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules",
+    "src/store/*.js"
   ]
 }

@@ -1,17 +1,20 @@
 <template>
   <div>
     <div v-if="isLoggedIn">
-      <v-avatar />
-      <v-btn v-on:click="logout">Sign Out</v-btn>
+      <!-- move logout button to dropdown menu on avatar -->
+      <v-btn v-on:click="logout">{{ this.$t('auth.logOut') }}</v-btn>
+      <v-avatar class="ml-1" color="info" rounded="true" />
     </div>
     <div v-else>
-      <v-btn v-on:click="login">Sign Up</v-btn>
-      <v-btn v-on:click="login">Log In</v-btn>
+      <v-btn class="ma-1" v-on:click="login">{{ this.$t('auth.logIn') }}</v-btn>
+      <router-link :to="{ name: 'Register' }">
+        <v-btn class="ma-1" color="primary">{{ this.$t('auth.signUp') }}</v-btn>
+      </router-link>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
 
