@@ -9,9 +9,14 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/Main/Main.vue'),
     children: [
       {
-        path: '/',
         name: 'Home',
+        path: '/',
         component: () => import('@/views/Home/Home.vue'),
+      },
+      {
+        name: 'Page 2',
+        path: '/page2',
+        component: () => import('@/views/Home/Home2.vue'),
       },
     ],
   },

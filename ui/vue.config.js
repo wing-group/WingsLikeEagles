@@ -22,7 +22,7 @@ module.exports = {
   devServer: {
     host: '0.0.0.0',
     proxy: {
-      '/api': {
+      '/v1': {
         target: `http://${host}:${port}`,
       },
     },

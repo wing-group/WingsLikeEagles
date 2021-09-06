@@ -1,10 +1,12 @@
-// this is not ready to be mimicked
+import http from './http';
 
-const getLoginStatus = async function () {
-  // todo axios.get();
-  return true;
-};
-
-export const authHttpService = {
+// public functions
+export default {
   getLoginStatus,
 };
+
+async function getLoginStatus(): Promise<boolean> {
+  const resp = await http.get('/logged_in');
+  if (resp && resp.data && resp.data.body) return resp.data.body.logged_in;
+  return false;
+}

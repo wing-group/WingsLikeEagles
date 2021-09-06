@@ -1,23 +1,18 @@
 <template>
   <div class="app-container" :id="`${id}-container`">
-    <v-navigation-drawer v-model="sideBar" app>
-      <main-nav-menu />
+    <v-navigation-drawer v-if="isMobile" v-model="sideBar" app>
+      <main-nav-menu :mobile="true" />
     </v-navigation-drawer>
     <v-app-bar app color="accent" :elevate-on-scroll="true">
       <v-app-bar-nav-icon
-        color="headerContent"
+        v-if="isMobile"
+        color="secondary"
         @click.prevent="toggleSidebar"
       />
       <router-link to="/" class="text-decoration-none">
-        <span
-          class="text-h5 font-weight-bold"
-          :style="{ color: $vuetify.theme.currentTheme.headerContent }"
-          >{{ appName }}</span
-        >
+        <span class="text-h5 font-weight-bold nav-link">{{ appName }}</span>
       </router-link>
-      <v-spacer />
-      <wle-search v-if="!isMobile" class="nav-search"></wle-search>
-      <wle-login-status v-if="!isMobile"></wle-login-status>
+      <main-nav-menu v-if="!isMobile" :mobile="false" class="full-width" />
     </v-app-bar>
     <v-main class="page-wrapper">
       <v-container fluid>
@@ -32,8 +27,6 @@
 
 <script>
 import Vue from 'vue';
-import WleLoginStatus from '@/views/Main/WLELoginStatus.vue';
-import WleSearch from '@/components/WLESearch/WLESearch.vue';
 import WleFooter from '@/views/Main/WLEFooter.vue';
 import MainNavMenu from './MainNavMenu.vue';
 
@@ -41,8 +34,6 @@ export default Vue.extend({
   name: 'Main',
   components: {
     WleFooter,
-    WleSearch,
-    WleLoginStatus,
     MainNavMenu,
   },
   data() {
@@ -75,6 +66,23 @@ export default Vue.extend({
   .page-wrapper {
     /* makes sure the fotter is at least the bottom */
     min-height: 95%;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+}
+</style>
+
+<style lang="scss">
+.app-container {
+  .nav-link {
+    text-decoration: none;
+    color: var(--v-secondary-base);
+  }
+
+  .nav-link:hover {
+    color: var(--v-secondary-darken1);
   }
 }
 </style>

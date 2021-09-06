@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-search">
+  <div class="nav-search" :class="{ full: expand }">
     <v-text-field
       v-model="searchText"
       :placeholder="this.$t('components.search.placeholder')"
@@ -18,6 +18,12 @@
 import Vue from 'vue';
 export default Vue.extend({
   name: 'WleSearch',
+  props: {
+    expand: {
+      default: false,
+      required: false,
+    },
+  },
   data() {
     return {
       searchText: '',
@@ -38,5 +44,9 @@ export default Vue.extend({
   margin-right: 8px;
   position: relative;
   top: -1px;
+}
+
+.full {
+  margin-right: 0;
 }
 </style>

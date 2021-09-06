@@ -13,18 +13,18 @@ export default new Vuetify({
     mobileBreakpoint: 'sm', // This is equivalent to a value of 960
   },
   theme: {
+    options: { customProperties: true },
     dark: false, // can be changed in-app
     themes: {
       // color overrides
       light: {
         primary: '#2196F3',
-        secondary: '#EEEEEE',
+        secondary: '#FFFFFF',
         accent: '#965913',
         error: '#FF5252',
         info: '#A3A3A3',
         success: '#4CAF50',
         warning: '#FFC107',
-        headerContent: '#FFFFFF',
       },
       dark: {
         // todo
