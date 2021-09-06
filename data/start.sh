@@ -7,15 +7,6 @@ source ./env
 # container name
 CONTAINER=wle_db
 
-trap ctrl_c INT
-
-# function ctrl_c() {
-#     echo "Stopping DB Container..."
-#     docker stop $CONTAINER
-#     echo "Removing DB Container..."
-#     docker rm $CONTAINER
-# }
-
 docker run \
     --name $CONTAINER \
     -e POSTGRES_PASSWORD=$PG_PASSWORD \
