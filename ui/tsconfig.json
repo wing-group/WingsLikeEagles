@@ -29,6 +29,7 @@
   ],
   "exclude": [
     "node_modules",
-    "src/store/*.js"
+    "src/store/*.js",
+    "src/library/*.js"
   ]
 }

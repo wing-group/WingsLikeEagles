@@ -14,5 +14,11 @@ export default {
     search: {
       placeholder: 'Search for something',
     },
+    error: {
+      title: 'Something Went Wrong',
+      retry: 'Retry',
+      back: 'Go Back',
+      generic: 'An unknown error has occurred. Please try again later.',
+    },
   },
 };
