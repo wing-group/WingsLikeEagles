@@ -10,24 +10,31 @@
       </v-row>
       <v-row>
         <v-col>
-          <div v-for="link in links" :key="link.display">
-            <router-link class="text-h6 mobile-nav-link" :to="link.to">{{
-              link.display
-            }}</router-link>
-          </div>
+          <template v-for="link in links">
+            <div :key="link.display">
+              <router-link
+                v-if="link.showMobile"
+                class="text-h6 mobile-nav-link"
+                :to="link.to"
+                >{{ link.display }}</router-link
+              >
+            </div>
+          </template>
         </v-col>
       </v-row>
     </v-container>
     <!-- DESKTOP | horizontal nav -->
     <div v-else>
       <v-row align="center" class="ml-1">
-        <div class="block ml-4" v-for="link in links" :key="link.display">
-          <router-link
-            :to="link.to"
-            class="text-h6 font-weight-bold nav-link"
-            >{{ link.display }}</router-link
-          >
-        </div>
+        <template v-for="link in links">
+          <div v-if="link.showWeb" class="block ml-4" :key="link.display">
+            <router-link
+              :to="link.to"
+              class="text-h6 font-weight-bold nav-link"
+              >{{ link.display }}</router-link
+            >
+          </div>
+        </template>
         <v-spacer />
         <wle-search />
         <wle-login-status />
@@ -56,9 +63,24 @@ export default Vue.extend({
   data() {
     return {
       links: [
-        { display: 'Home', to: { name: 'Home' } },
-        { display: 'Page 2', to: { name: 'Page 2' } },
-        { display: 'Page 2.0', to: { name: 'Page 2' } },
+        {
+          display: 'Home',
+          to: { name: 'Home' },
+          showMobile: true,
+          showWeb: false,
+        },
+        {
+          display: 'Page 2',
+          to: { name: 'Page 2' },
+          showMobile: true,
+          showWeb: true,
+        },
+        {
+          display: 'Page 2.0',
+          to: { name: 'Page 2' },
+          showMobile: true,
+          showWeb: true,
+        },
       ],
     };
   },
