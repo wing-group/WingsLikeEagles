@@ -8,28 +8,27 @@
       <v-row align="center" justify="center">
         <v-card v-if="!loading" :width="cardWidth">
           <v-container>
-            <!-- TODO use i18n -->
-            <h1>Sign In to WingsLikeEagles</h1>
+            <h1>{{ text.title }}</h1>
             <br />
             <v-text-field
               outlined
-              label="E-mail"
+              :label="text.email"
               v-model="email"
               :rules="[required]"
             />
             <v-text-field
               outlined
-              label="Password"
+              :label="text.password"
               type="password"
               v-model="password"
               :rules="[required]"
             />
             <v-row>
               <v-col>
-                <v-btn @click="goBack">{{ 'Cancel' }}</v-btn>
+                <v-btn @click="goBack">{{ text.cancel }}</v-btn>
               </v-col>
               <v-col align="right">
-                <v-btn @click="submit" color="primary">{{ 'Submit' }}</v-btn>
+                <v-btn @click="submit" color="primary">{{ text.submit }}</v-btn>
               </v-col>
             </v-row>
           </v-container>
@@ -63,6 +62,13 @@ export default Vue.extend({
       email: '',
       password: '',
       loading: false,
+      text: {
+        title: this.$t('views.auth.signin') + this.$t('global.siteName'),
+        email: this.$t('views.auth.email'),
+        password: this.$t('views.auth.password'),
+        cancel: this.$t('global.cancel'),
+        submit: this.$t('global.submit'),
+      },
     };
   },
   methods: {
@@ -74,7 +80,10 @@ export default Vue.extend({
     },
     async submit() {
       this.loading = true;
-      const [logged_in, user] = await authHttpService.logIn(this.email, this.password);
+      const [logged_in, user] = await authHttpService.logIn(
+        this.email,
+        this.password
+      );
 
       if (logged_in) {
         this.goBack();
