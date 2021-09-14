@@ -1,5 +1,9 @@
 export PG_USERNAME="wle_api"
 export PG_PASSWORD="tempdevpassword"
 export PG_DB="wle_api_production"
+# network allows your containers to communicate with each other.
+# if you are running things locally then you can ignore this. 
+# if you are running things in containers, make sure you attach them to the same network name.
+export WLE_NETWORK="wle"
 
 # this is intentionally kept in git during early development
