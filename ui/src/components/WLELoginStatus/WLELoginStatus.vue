@@ -6,7 +6,9 @@
       <v-avatar class="ml-1" color="info" rounded="true" />
     </div>
     <div v-else :class="{ 'flex-ends': expand }">
-      <v-btn class="ma-1" v-on:click="login">{{ this.$t('auth.logIn') }}</v-btn>
+      <v-btn class="ma-1" :to="{ name: 'Sign In' }">{{
+        this.$t('auth.logIn')
+      }}</v-btn>
       <v-btn class="ma-1" color="primary" :to="{ name: 'Register' }">{{
         this.$t('auth.signUp')
       }}</v-btn>
@@ -17,23 +19,24 @@
 <script>
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
+import authHttpService from '@/services/authHttpService';
 
 export default Vue.extend({
   name: 'WleLoginStatus',
   props: {
-    // pushes buttons to left & right to take up space
+    /**
+     * pushes buttons to left & right to take up space
+     */
     expand: {
+      type: Boolean,
       default: false,
       required: false,
     },
   },
   methods: {
-    login() {
-      // TODO this will change to open a login prompt....
-      this.$store.dispatch('auth/logIn', { username: 'cory' });
-    },
-    logout() {
-      this.$store.dispatch('auth/logOut');
+    async logout() {
+      const logged_in = await authHttpService.logOut();
+      if (!logged_in) this.$store.dispatch('auth/logOut');
     },
   },
   created() {

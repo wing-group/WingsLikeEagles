@@ -48,14 +48,9 @@ const actions = {
    */
   async fetchUserData({ state, commit }, forceFetch) {
     if (Object.keys(state.currentUser).length === 0 || forceFetch) {
-      // logged_in
-      let logged_in = await authHttpService.getLoginStatus();
+      const [logged_in, user] = await authHttpService.getLoginStatus();
       if (state.loggedIn !== logged_in) commit('toggleLoggedInStatus');
-
-      // TODO: api call for current user if logged_in
-      if (logged_in) {
-        commit('setUser', {}); // will change...
-      }
+      commit('setUser', user);
     }
   },
 };
