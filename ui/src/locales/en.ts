@@ -1,6 +1,8 @@
 export default {
   global: {
-    site_name: 'WingsLikeEagles',
+    siteName: 'WingsLikeEagles',
+    cancel: 'Cancel',
+    submit: 'Submit',
   },
   footer: {
     copyright: 'WingsAreCool 2021',
@@ -19,6 +21,19 @@ export default {
       retry: 'Retry',
       back: 'Go Back',
       generic: 'An unknown error has occurred. Please try again later.',
+    },
+  },
+  views: {
+    auth: {
+      signup: 'Sign Up For ', // sitename
+      signin: 'Sign In To ', // sitename
+      email: 'E-mail',
+      password: 'Password',
+      passwordConf: 'Confirm Password',
+      displayName: 'Display Name',
+      required: 'Required',
+      passwordLength: 'Password must be at least 8 characters',
+      passwordMatch: 'Passwords must match',
     },
   },
 };

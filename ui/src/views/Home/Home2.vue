@@ -14,7 +14,7 @@ export default Vue.extend({
   name: 'Home',
   data() {
     return {
-      appName: this.$t('global.site_name'),
+      appName: this.$t('global.siteName'),
       id: 'home',
     };
   },

@@ -40,7 +40,7 @@ export default Vue.extend({
     return {
       id: 'main-view',
       sideBar: false,
-      appName: this.$t('global.site_name'),
+      appName: this.$t('global.siteName'),
     };
   },
   methods: {
