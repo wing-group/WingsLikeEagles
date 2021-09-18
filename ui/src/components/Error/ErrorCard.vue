@@ -76,7 +76,7 @@ export default Vue.extend({
       this.$router.go(-1);
     },
   },
-  errorCaptured(err, vm) {
+  errorCaptured(err) {
     this.message = `Error: ${err.message}`;
     this.show = true;
 

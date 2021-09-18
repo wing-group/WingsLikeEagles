@@ -11,6 +11,7 @@ export default {
     logIn: 'Log In',
     logOut: 'Log Out',
     signUp: 'Sign Up',
+    profile: 'My Profile',
   },
   components: {
     search: {

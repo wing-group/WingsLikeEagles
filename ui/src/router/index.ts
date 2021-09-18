@@ -14,6 +14,11 @@ const routes: Array<RouteConfig> = [
         component: () => import('@/views/Home/Home.vue'),
       },
       {
+        name: 'Profile',
+        path: '/profile',
+        component: () => import('@/views/Auth/UserProfile.vue'),
+      },
+      {
         name: 'Page 2',
         path: '/page2',
         component: () => import('@/views/Home/Home2.vue'),
@@ -26,7 +31,7 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/Auth/Register.vue'),
   },
   {
-    name: "Sign In",
+    name: 'Sign In',
     path: '/signin',
     component: () => import('@/views/Auth/SignIn.vue'),
   },

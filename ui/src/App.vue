@@ -11,9 +11,10 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'App',
-
-  data: () => ({
-    //
-  }),
+  async created() {
+    // Fetch needed data:
+    this.$store.dispatch('auth/fetchUserData', true);
+    this.$store.dispatch('bible/fetchBibleData', true);
+  },
 });
 </script>

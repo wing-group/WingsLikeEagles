@@ -14,11 +14,11 @@
       </router-link>
       <main-nav-menu v-if="!isMobile" :mobile="false" class="full-width" />
     </v-app-bar>
-    <v-main class="page-wrapper">
+    <div class="page-wrapper">
       <v-container fluid>
         <router-view />
       </v-container>
-    </v-main>
+    </div>
     <v-footer>
       <wle-footer />
     </v-footer>

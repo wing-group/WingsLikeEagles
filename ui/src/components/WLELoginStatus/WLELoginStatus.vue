@@ -1,9 +1,10 @@
 <template>
   <div :class="{ full: expand }">
     <div v-if="isLoggedIn" :class="{ 'flex-ends': expand }">
-      <!-- move logout button to dropdown menu on avatar -->
-      <v-btn v-on:click="logout">{{ this.$t('auth.logOut') }}</v-btn>
-      <v-avatar class="ml-1" color="info" rounded="true" />
+      <v-btn :to="{ name: 'Profile' }">{{ this.$t('auth.profile') }}</v-btn>
+      <v-avatar class="ml-1" color="primary" rounded="true" dense>
+        <v-icon x-large color="secondary" class="avatar"> fa-user </v-icon>
+      </v-avatar>
     </div>
     <div v-else :class="{ 'flex-ends': expand }">
       <v-btn class="ma-1" :to="{ name: 'Sign In' }">{{
@@ -39,9 +40,6 @@ export default Vue.extend({
       if (!logged_in) this.$store.dispatch('auth/logOut');
     },
   },
-  created() {
-    this.$store.dispatch('auth/fetchUserData');
-  },
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
@@ -59,5 +57,9 @@ export default Vue.extend({
 .flex-ends {
   display: flex;
   justify-content: space-between;
+}
+
+.avatar {
+  transform: translateY(0.3rem);
 }
 </style>

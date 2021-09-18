@@ -121,7 +121,7 @@ export default Vue.extend({
       );
 
       if (logged_in) {
-        this.goBack();
+        this.$router.push({ name: 'Profile' });
       } else {
         this.loading = false;
         throw new Error(this.$t('components.error.generic'));
